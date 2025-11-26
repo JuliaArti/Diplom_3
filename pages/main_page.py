@@ -50,3 +50,7 @@ class MainPageBurgers(BasePageBurger):
     def get_order_number(self):
         self.wait_visibility_of_element((LocatorsMain.order_num_field))
         return self.get_text_on_element((LocatorsMain.order_num_field))
+    
+    @allure.step('Переходим на ленту заказов')
+    def go_to_order_feed(self):
+        self.click_on_element((LocatorsMain.ORDER_FEED_BUTTON))

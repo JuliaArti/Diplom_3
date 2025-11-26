@@ -77,6 +77,6 @@ class TestOrderFeed:
         main_page.wait_order_result()
         order_num = main_page.get_order_number()
 
-        # Получаем новое количество заказов за все время
+        # Проверяем отображение заказа по номеру в разделе "В Работе"
         feed_page.open_feed_page()
         assert feed_page.find_order_in_progress(order_num), "Заказ не отображается в разделе 'В работе'"

@@ -1,6 +1,7 @@
 import allure
 from selenium.webdriver.firefox.webdriver import WebDriver
 from pages.main_page import MainPageBurgers
+from pages.feed_page import FeedPageBurgers
 from data.urls import Urls
 
 class TestBurgersSmoke:
@@ -9,18 +10,19 @@ class TestBurgersSmoke:
     @allure.description('Переход с главной страницы на ленту заказов, клик на кнопку Конструктор')
     def test_constructor(self, driver: WebDriver):
         main_page = MainPageBurgers(driver)
+        feed_page = FeedPageBurgers(driver)
         main_page.open_main_page()
-        main_page.header.go_to_order_feed()
+        main_page.go_to_order_feed()
         main_page.wait_loading_of_url(Urls.feed_page)
-        main_page.header.go_to_constructor()
-        assert main_page.wait_loading_of_url(Urls.main_site)
+        feed_page.go_to_constructor()
+        assert feed_page.wait_loading_of_url(Urls.main_site)
 
     @allure.title('Переход по клику на раздел «Лента заказов»')
     @allure.description('Переход с главной страницы на ленту заказов')
     def test_orders_feed(self, driver: WebDriver):
         main_page = MainPageBurgers(driver)
         main_page.open_main_page()
-        main_page.header.go_to_order_feed()
+        main_page.go_to_order_feed()
         assert main_page.wait_loading_of_url(Urls.feed_page)
 
     @allure.title('Если кликнуть на ингредиент, появится всплывающее окно с деталями')

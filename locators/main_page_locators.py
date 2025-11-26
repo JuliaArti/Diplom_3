@@ -25,3 +25,6 @@ class LocatorsMain:
 
     # Поле номера заказа
     order_num_field = (By.XPATH, "//h2[contains(@class, 'Modal_modal__title_shadow__3ikwq')]")
+
+    # Лента заказов
+    ORDER_FEED_BUTTON = (By.XPATH, "//p[contains(text(),'Лента Заказов')]")

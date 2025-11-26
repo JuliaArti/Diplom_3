@@ -2,13 +2,11 @@ import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from data.urls import *
 from selenium.webdriver.support import expected_conditions
-from pages.header import Header
 from selenium.webdriver import ActionChains
 
 class BasePageBurger:
     def __init__(self, driver):
         self.driver = driver
-        self.header = Header(driver)
         self.actions = ActionChains(driver)
 
     @staticmethod

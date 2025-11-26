@@ -19,7 +19,12 @@ class FeedPageBurgers(BasePageBurger):
         self.wait_visibility_of_element(LocatorsFeed.all_time_value)
         return self.get_text_on_element(LocatorsFeed.all_time_value)
     
+    @allure.step('Проверяем отображение заказа по номеру в разделе "В Работе"')
     def find_order_in_progress(self, order_num):
         order_locator = LocatorsFeed.get_order_in_progress_locator(order_num)
         return self.wait_visibility_of_element(order_locator)
+    
+    @allure.step('Переходим в Конструктор')
+    def go_to_constructor(self):
+        self.click_on_element((LocatorsFeed.CONSTRUCTOR_BUTTON))
         

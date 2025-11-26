@@ -11,3 +11,6 @@ class LocatorsFeed:
     @staticmethod
     def get_order_in_progress_locator(order_num):
         return (By.XPATH, f'//ul[contains(@class, "OrderFeed_orderListReady__1YFem")]//li[contains(., "{order_num}")]')
+    
+    # Конструктор
+    CONSTRUCTOR_BUTTON = (By.XPATH, "//p[contains(text(),'Конструктор')]")
